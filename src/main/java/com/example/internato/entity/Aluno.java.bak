@@ -1,0 +1,17 @@
+package com.example.internato.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Data @NoArgsConstructor @AllArgsConstructor @Builder
+public class Aluno {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @OneToOne( cascade=CascadeType.ALL)
+    private Usuario usuario;
+
+    @ManyToOne()
+    private PeriodoAcademico periodo;
+}
